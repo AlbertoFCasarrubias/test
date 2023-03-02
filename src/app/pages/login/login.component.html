@@ -1,0 +1,33 @@
+<div class="row flexCenter fullHeight">
+  <form class="col s12 m6 marginAuto" [formGroup]="validationsForm" (ngSubmit)="tryLogin(validationsForm.value)">
+    <div class="row">
+      <div class="col s12 jobcamps pos">
+        LOGIN
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="input-field col s12">
+        <input id="email" type="text" class="validate" formControlName="email">
+        <label for="email">Correo electrónico</label>
+        <div class="validation-errors">
+
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="password" type="{{!visibility ? 'password' : 'text'}}" class="validate" formControlName="password">
+        <label for="password">Password</label>
+        <i (click)="toogleVisibility()" class="visibilityIcon material-icons">{{!visibility ? 'visibility' : 'visibility_off'}}</i>
+      </div>
+
+      <div class="input-field col s12 center loginBtnContainer">
+        <button class="waves-effect waves-light btn" expand="block" type="submit" [disabled]="!validationsForm.valid">Iniciar sesión</button>
+        <!--button class="waves-effect waves-light btn" expand="block" type="button" (click)="goTo('student')">Crear estudiante</button-->
+        <a (click)="forgotPassword()">Olvide la contraseña</a>
+      </div>
+
+    </div>
+  </form>
+</div>
